@@ -34,7 +34,7 @@
     "ember-try": "0.0.4"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon","ui","code"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "0.7.4",

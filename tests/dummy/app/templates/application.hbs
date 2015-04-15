@@ -112,6 +112,12 @@ fi
             The <code>code-reference</code> component is an inline helper which allows you to point to variables 
             and have them highlighted with 
             <ul>
+                <li><strong>referenceItem</strong> 
+                    <ul>
+                        <li>allows binding to this variable, the code view of this variables content is then displayed</li>
+                        <li>you may also use the alias <code>ref</code> as a shorthand way of doing the same thing</li>
+                    </ul>
+                </li>
                 <li><strong>border</strong> 
                     <ul>
                         <li>same as <code>code-block</code></li>
@@ -129,17 +135,35 @@ fi
         
         <note>
             <strong>Note:</strong> 
-            this presumes a function exists on <strong>application.js</strong> called <code>snippetFunction</code>
+            this presumes a property exists on <strong>application.js</strong> called <code>snippetFunction</code>
         </note>
         </div>
         <div class="col-xs-7">
             {{code-reference ref=snippetFunction  border=true}}
             <note>
-                which of course is does :)
+                which of course it does :)
             </note>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-5">
+        {{#code-block language="handlebars" border=true}}
+\{{code-reference ref=snippetArray  border=true}}
+        {{/code-block}}
+        
+        <note>
+            <strong>Note:</strong> 
+            this presumes a property exists on <strong>application.js</strong> called <code>snippetArray</code>
+        </note>
+        </div>
+        <div class="col-xs-7">
+            {{code-reference ref=snippetArray  border=true}}
+            <note>
+                which again it does :)
+            </note>
+        </div>
+    </div>
 
 
 

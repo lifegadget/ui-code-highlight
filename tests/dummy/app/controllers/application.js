@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
   },
   
   snippetJSON: '{ "foo": "bar", "bar": "baz" }',
+  snippetArray: ['one','two','three','four'],
   snippetFunction: function(x) {
     return x + x;
   },

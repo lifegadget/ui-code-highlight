@@ -16,9 +16,10 @@ export default UiCodeHighlight.extend({
     console.log(referenceItem);
     if(typeOf(referenceItem) === 'function') {
       highlight = hljs.highlight('javascript', referenceItem.toString());
+    } else {
+      highlight = hljs.highlight('javascript', JSON.stringify(referenceItem));
     }
-    // let highlight = hljs.highlightAuto(referenceItem);
+
     this.$('code').html(highlight.value);
   })
-  
 });
