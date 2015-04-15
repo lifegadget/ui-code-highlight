@@ -1,0 +1,18 @@
+pre.ui-code-highlight {
+    background-color: initial;
+    border: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: .5em;
+    padding-left: 1em;
+    background-color: #f8f8ff;
+}
+pre.ui-code-highlight.border {
+/*    background-color: #f5f5f5;*/
+    border: 1px solid #ccc;
+}
+
+pre.ui-code-highlight code {
+    padding-top: 0;
+    padding-bottom: 0;
+}

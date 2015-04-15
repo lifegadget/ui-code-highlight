@@ -1,3 +1,146 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="container">
+    <h1 id="title">ui-code-hightlight</h1>
+    <h2>Code highlighting using highlight.js</h2>
+    
+    <h3>code-block</h3>
+    <div class="row">
+        <desc>
+            the <code>code-block</code> component is a block helper which allows code fragments represented in your 
+            templates to be code highlighted. You may optionally provide:
+            <ul>
+                <li><strong>language</strong> 
+                    <ul>
+                        <li>you can be explicit about what language is involved</li>
+                        <li>if you leave this off then it will try to auto-identify</li>
+                        <li>if you're lazy you can just use <code>lang</code> as it's setup as an alias</li>
+                        <li>
+                            if you're stating multiple languages via an array you find it more appropriate to use  
+                            <code>langs</code> or <code>languages</code> because ... guess what? ... they're setup as aliases
+                            too
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>border</strong> 
+                    <ul>
+                        <li>a boolean flag which indicates whether a border should be painted around the code</li>
+                        <li>
+                            the default border color is a light grey and defined by the  
+                            <code>span.ui-code-highlight.border</code> CSS selector
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </desc>
+    </div>
+    
+    <div class="row">
+    <div class="col-xs-5">
+        handlebars:
+{{#code-block language="handlebars"}}
+\{{#code-block}}
+foo = [ 1,2,3 ];
+foo.forEach(function(item) {
+    console.log(item);
+});
+\{{/code-block}} 
+{{/code-block}}
+    </div>
+    <div class="col-xs-7">
+        output:
+{{#code-block language="javascript"}}
+foo = [ 1,2,3 ];
+foo.forEach(function(item) {
+    console.log(item);
+});
+{{/code-block}}        
+    </div>
+        
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-5">
+        {{#code-block language="handlebars"}}
+\{{#code-block language="json"}}
+[
+    { "id": "foo", "bar": "baz" },
+    { "id": "foo2", "bar": "baz2" }
+]
+\{{/code-block}}
+        {{/code-block}}
+        </div>
+<div class="col-xs-7">
+{{#code-block language="json"}}
+[
+    { "id": "foo", "bar": "baz" },
+    { "id": "foo2", "bar": "baz2" }
+]
+{{/code-block}}
+        </div>        
+    </div>
 
-{{outlet}}
+    <div class="row">
+        <div class="col-xs-5">
+        {{#code-block language="handlebars" border=true}}
+\{{#code-block language="bash" border=true}}
+#!/bin/bash
+
+if [ "$UID" -ne 0 ] 
+then
+    echo "Superuser right is required"
+    exit 2
+fi
+\{{/code-block}}
+        {{/code-block}}
+        </div>
+        <div class="col-xs-7">
+{{#code-block language="bash" border=true}}
+#!/bin/bash
+
+if [ "$UID" -ne 0 ] 
+then
+    echo "Superuser right is required"
+    exit 2
+fi
+{{/code-block}}
+        </div>        
+    </div>
+    
+
+    <h3>code-reference</h3>
+    <div class="row">
+        <desc>
+            The <code>code-reference</code> component is an inline helper which allows you to point to variables 
+            and have them highlighted with 
+            <ul>
+                <li><strong>border</strong> 
+                    <ul>
+                        <li>same as <code>code-block</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </desc>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-5">
+        {{#code-block language="handlebars" border=true}}
+\{{code-reference ref=snippetFunction  border=true}}
+        {{/code-block}}
+        
+        <note>
+            <strong>Note:</strong> 
+            this presumes a function exists on <strong>application.js</strong> called <code>snippetFunction</code>
+        </note>
+        </div>
+        <div class="col-xs-7">
+            {{code-reference ref=snippetFunction  border=true}}
+            <note>
+                which of course is does :)
+            </note>
+        </div>
+    </div>
+
+
+
+
+</div>
