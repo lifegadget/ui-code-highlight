@@ -28,15 +28,22 @@ export default Ember.Component.extend({
     }
   })),
   poll: null,
-  pollObserver: Ember.on('init', Ember.observer('poll',function() {
+  _pollObserver: Ember.on('init', Ember.observer('poll',function() {
     let pollInterval = this.get('poll');
-    if(pollInterval) {
-      window.setTimeout( () => {
+    if(pollInterval) { 
+      let pollHandle = Ember.run.later(this, () => {
         this.highlighter();
-        this.pollObserver();
+        this._pollObserver();
       }, pollInterval);
-    }
+      this.set('_pollHandle', pollHandle);
+    } 
   })),
+  _pollHandleDestroyer: Ember.on('willDestroyElement', function() {
+      let pollHandle = this.get('_pollHandle');
+      if(pollHandle) {
+          Ember.run.cancel(pollHandle);
+      }
+  }),
   tabReplace: '    ',
   classPrefix: 'hljs-',
   useBR: null,
