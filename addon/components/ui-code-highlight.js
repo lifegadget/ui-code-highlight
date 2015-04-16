@@ -87,6 +87,9 @@ export default Ember.Component.extend({
     hljs.configure(configuration);
     let shadowDom = stripComments(this.$('.shadow-dom').html());
     let highlight = hljs.highlightAuto(shadowDom);
-    this.$('code').html(highlight.value);
+    // only set DOM if change exists
+    if(highlight.value !== this.$('code').html()) {
+      this.$('code').html(highlight.value);      
+    }
   })
 });
