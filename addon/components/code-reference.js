@@ -7,6 +7,9 @@ export default UiCodeHighlight.extend({
   layout: layout,
   referenceItem: null,
   ref: Ember.computed.alias('referenceItem'),
+  referenceObserver: Ember.observer('referenceItem', function() {
+    this.highlighter();
+  }),
   
   // Initialize
   highlighter: Ember.on('didInsertElement', function() {

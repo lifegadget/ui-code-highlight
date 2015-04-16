@@ -16,3 +16,9 @@ pre.ui-code-highlight code {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+.ui-code-highlight .shadow-dom {
+    position: fixed;
+    top: 0;
+    left: 0;
+}

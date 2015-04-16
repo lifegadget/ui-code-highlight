@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import layout from '../templates/components/ui-code-highlight';
-
 var typeOf = Ember.typeOf;
 
 export default Ember.Component.extend({
@@ -26,6 +25,17 @@ export default Ember.Component.extend({
     // set if changed
     if (lc !== l) {
       this.set('language', lc);
+    }
+  })),
+  poll: null,
+  pollObserver: Ember.on('init', Ember.observer('poll',function() {
+    let pollInterval = this.get('poll');
+    if(pollInterval) {
+      let startingState = this.$('.shadow-dom');
+      window.setTimeout( () => {
+        this.highlighter();
+        this.pollObserver();
+      }, pollInterval);
     }
   })),
   tabReplace: '    ',
@@ -65,10 +75,12 @@ export default Ember.Component.extend({
   // Initialize
   highlighter: Ember.on('didInsertElement', function() {
     let configuration = this.get('configuration');
+    let stripComments = (html) => {
+      return  html.replace(/\<\![\-]+\>/gm,'');
+    };
     hljs.configure(configuration);
-    this.$('code').each(function(i, block) {
-      hljs.highlightBlock(block);
-    });  
-  }),
-  // 
+    let shadowDom = stripComments(this.$('.shadow-dom').html());
+    let highlight = hljs.highlightAuto(shadowDom);
+    this.$('code').html(highlight.value);
+  })
 });

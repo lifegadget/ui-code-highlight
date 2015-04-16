@@ -29,6 +29,17 @@
                         </li>
                     </ul>
                 </li>
+                <li><strong>poll</strong> 
+                    <ul>
+                        <li>I don't know of any good way to listen for changes within the block content so instead we offer a polling mechanism instead.</li>
+                        <li>
+                            it is off by default but setting this to a numeric value determines the number of miliseconds to wait before polling again for any underlying changes.
+                        </li>
+                        <li>
+                            probably in most cases the content is pretty static so it is safe to just leave this off but if you're demonstrating a dynamic/interactive component then you'll probably want to turn this on.
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </desc>
     </div>
