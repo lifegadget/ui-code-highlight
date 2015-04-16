@@ -1,6 +1,6 @@
 {
   "name": "ui-code-highlight",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ember-CLI highlight.js wrapper (for Ember-CLI 0.2.3+).",
   "directories": {
     "doc": "doc",
