@@ -7,11 +7,9 @@ export default Ember.Controller.extend({
   
   actions: {
     toggleRepression: function() {
-      console.log('toggling');
       this.toggleProperty('isRepressed');
     },
     toggleEnablement: function() {
-      console.log('toggling');
       this.toggleProperty('toggledEnablement');
     }
   },

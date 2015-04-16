@@ -31,7 +31,6 @@ export default Ember.Component.extend({
   pollObserver: Ember.on('init', Ember.observer('poll',function() {
     let pollInterval = this.get('poll');
     if(pollInterval) {
-      let startingState = this.$('.shadow-dom');
       window.setTimeout( () => {
         this.highlighter();
         this.pollObserver();
@@ -76,7 +75,7 @@ export default Ember.Component.extend({
   highlighter: Ember.on('didInsertElement', function() {
     let configuration = this.get('configuration');
     let stripComments = (html) => {
-      return  html.replace(/\<\![\-]+\>/gm,'');
+      return  html.replace(/<\![\-]+\>/gm,'');
     };
     hljs.configure(configuration);
     let shadowDom = stripComments(this.$('.shadow-dom').html());

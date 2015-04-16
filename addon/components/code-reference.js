@@ -16,7 +16,6 @@ export default UiCodeHighlight.extend({
     let { configuration, referenceItem } = this.getProperties('configuration', 'referenceItem');
     let highlight;
     hljs.configure(configuration);
-    console.log(referenceItem);
     if(typeOf(referenceItem) === 'function') {
       highlight = hljs.highlight('javascript', referenceItem.toString());
     } else {
