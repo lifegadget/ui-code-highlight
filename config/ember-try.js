@@ -9,7 +9,7 @@ module.exports = {
     {
       name: 'Ember Beta',
       dependencies: {
-        'ember': 'components/ember#beta'
+        'ember': 'beta'
       }
     }
   ]
