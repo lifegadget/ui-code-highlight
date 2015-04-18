@@ -34,11 +34,14 @@
     "ember-try": "0.0.4"
   },
   "keywords": [
-    "ember-addon","ui","code"
+    "ember-addon",
+    "ui",
+    "code"
   ],
   "dependencies": {
-    "ember-cli-htmlbars": "0.7.4",
-    "ember-cli-babel": "^5.0.0"
+    "babel-runtime": "^5.1.10",
+    "ember-cli-babel": "^5.0.0",
+    "ember-cli-htmlbars": "0.7.4"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
