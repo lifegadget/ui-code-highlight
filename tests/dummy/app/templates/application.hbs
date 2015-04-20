@@ -176,6 +176,41 @@ fi
         </div>
     </div>
 
+    <div class='dom-reference-example'>
+        <h3>dom-reference</h3>
+        <div class="row">
+            <desc>
+                The <code>dom-reference</code> component is an inline helper shows the HTML of the DOM at a given location.
+                <ul>
+                    <li><strong>referenceItem</strong> 
+                        <ul>
+                            <li>allows binding to this variable, the code view of this variables content is then displayed</li>
+                            <li>you may also use the alias <code>ref</code> and <code>selector</code> as a shorthand way of doing the same thing</li>
+                        </ul>
+                    </li>
+                    <li><strong>border</strong> 
+                        <ul>
+                            <li>same as <code>code-block</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </desc>
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            {{#code-block language="handlebars" border=true}}
+\{{dom-reference 
+    ref='.dom-reference-example'   
+    border=true
+}}
+            {{/code-block}}
+        </div>
+        <div class="col-xs-8">
+            {{dom-reference ref='.dom-reference-example'  border=true}}
+        </div>
+    </div>
 
 
 </div>
