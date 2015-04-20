@@ -22,7 +22,7 @@ export default UiCodeHighlight.extend({
     let shadowDom = stripComments(window.$(domElement).html());
     let highlight = hljs.highlightAuto(shadowDom);
     // only set DOM if change exists
-    if(highlight.value !== window.$(domElement).html()) {
+    if(highlight.value !== shadowDom) {
       this.$('code').html(highlight.value);
     }
   })
