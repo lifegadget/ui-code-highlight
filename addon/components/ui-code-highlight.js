@@ -81,11 +81,11 @@ export default Ember.Component.extend({
   // Initialize
   highlighter: Ember.on('didInsertElement', function() {
     let configuration = this.get('configuration');
-    let stripComments = (html) => {
-      return  html.replace(/<\![\-]+\>/gm,'');
+    let prepareHtml = (html) => {
+      return  html.replace(/<\![\-]+\>/gm,'').replace(/&amp;/gm, '&');
     };
     hljs.configure(configuration);
-    let shadowDom = stripComments(this.$('.shadow-dom').html());
+    let shadowDom = prepareHtml(this.$('.shadow-dom').html());
     let highlight = hljs.highlightAuto(shadowDom);
     // only set DOM if change exists
     if(highlight.value !== this.$('code').html()) {
